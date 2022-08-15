@@ -1,18 +1,35 @@
-# NPM Package Starter
+# Clunk
 
-The goal here is to have a vanilla project starter that includes typescript. In addition it has commit lint and ava for testing. So not so vanilla. More of a minimal preset. You get to chose your preferred front end framework. Enjoy making things.
+Command Line Argument Parser helper library.
+Written in Typescript.
+SMALL. Currently only 4kb
 
 ![flavorite](https://raw.githubusercontent.com/patomation/vanilla-starter/master/public/favicon.ico)
 
 ## Install
+
 ```
-npm install
+npm install clunk
+```
+
+## USAGE Example
+
+```JS
+import {clunk} from "clunk"
+const args = clunk()
+console.log(`Cool ${args.cool}!`)
+```
+Then you could do
+```
+$ node index.js --cool beans
+// outputs "Cool beans!"
 ```
 
 ## Test
+
+Tested!
+Try the tests:
+
 ```
 npm run test
 ```
-supports naming convention: moduleName.test.ts
-Check out [ava](https://github.com/avajs/ava)
-

@@ -1,7 +1,8 @@
 {
-  "name": "npm-package-starter",
+  "name": "clunk",
+  "url": "https://github.com/patomation/clunk",
   "version": "0.0.0",
-  "description": "Javascript + Webpack vanilla starter project",
+  "description": "CLI argv parser helper",
   "public": true,
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -12,7 +13,8 @@
     "compile:tests": "tsc --project tsconfig.test.json",
     "compile:package": "tsc --project tsconfig.json",
     "compile": "npm run compile:tests && npm run compile:package",
-    "build": "npm run compile",
+    "build": "npm run compile && npm run size",
+    "size": "du -sh build/index.js",
     "unit": "ava --verbose",
     "unit:coverage": "nyc ava",
     "test": "npm run compile && npm run unit",
@@ -58,6 +60,5 @@
     "tsconfigs": "5.0.0",
     "typescript": "4.3.2",
     "wait-on": "6.0.0"
-  },
-  "dependencies": {}
+  }
 }
