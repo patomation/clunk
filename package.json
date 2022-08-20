@@ -1,7 +1,7 @@
 {
   "name": "clunk",
   "url": "https://github.com/patomation/clunk",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "CLI argv parser helper",
   "public": true,
   "main": "build/index.js",
