@@ -1,5 +1,5 @@
 export interface Clunk {
-  [key: string]: string | boolean
+  [key: string]: string | boolean | number
 }
 
 enum Flag {
@@ -19,6 +19,16 @@ function removeDashes(text: string): string {
   return text.replace(/-/g, '')
 }
 
+function getValue(text: string): string | boolean | number {
+  return text && whatFlag(text) === null
+    ? text === 'false'
+      ? false
+      : text === 'true'
+      ? true
+      : text
+    : true
+}
+
 export function parseArgs(argv: string[]): Clunk {
   const hash: Clunk = {}
   const [, , ...rest] = argv
@@ -32,23 +42,11 @@ export function parseArgs(argv: string[]): Clunk {
       const keys = Array.from(removeDashes(text).toLowerCase())
       keys.forEach((key, i) => {
         // The last one should get the text argument the first ones should be booleans
-        hash[key] =
-          keys.length - 1 === i
-            ? nextText && whatFlag(nextText) === null
-              ? nextText === 'false'
-                ? false
-                : nextText
-              : true
-            : true
+        hash[key] = keys.length - 1 === i ? getValue(nextText) : true
       })
     } else if (flagKind === Flag.LONG) {
       const key = removeDashes(text).toLowerCase()
-      hash[key] =
-        nextText && whatFlag(nextText) === null
-          ? nextText === 'false'
-            ? false
-            : nextText
-          : true
+      hash[key] = getValue(nextText)
     }
   }
   return hash

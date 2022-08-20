@@ -26,17 +26,22 @@ const testCases: TestCase[] = [
     },
   },
   {
-    name: 'can set false',
-    argv: [...defaultArgs, '--nice', 'false', '-o', 'false'],
+    name: 'explicit booleans',
+    argv: [...defaultArgs, '--nice', 'false', '-o', 'false', '-b', 'true'],
     expected: {
       nice: false,
       o: false,
+      b: true,
     },
   },
 ]
 
+function getName(name: string, [, , ...argv]: string[]): string {
+  return `${name} | ${argv.join(' ')}`
+}
+
 testCases.forEach(({ name, argv, expected }) => {
-  test(name, (t) => {
+  test(getName(name, argv), (t) => {
     const clunk = parseArgs(argv)
     t.deepEqual(clunk, expected)
   })
