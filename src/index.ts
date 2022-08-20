@@ -25,7 +25,9 @@ function getValue(text: string): string | boolean | number {
       ? false
       : text === 'true'
       ? true
-      : text
+      : isNaN(Number(text || ''))
+      ? text
+      : Number(text)
     : true
 }
 

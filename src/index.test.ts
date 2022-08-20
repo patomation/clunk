@@ -34,6 +34,14 @@ const testCases: TestCase[] = [
       b: true,
     },
   },
+  {
+    name: 'support numbers',
+    argv: [...defaultArgs, '--number1', '42', '-a', '10'],
+    expected: {
+      number1: 42,
+      a: 10,
+    },
+  },
 ]
 
 function getName(name: string, [, , ...argv]: string[]): string {
