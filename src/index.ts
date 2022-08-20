@@ -35,19 +35,25 @@ export function parseArgs(argv: string[]): Clunk {
         hash[key] =
           keys.length - 1 === i
             ? nextText && whatFlag(nextText) === null
-              ? nextText
+              ? nextText === 'false'
+                ? false
+                : nextText
               : true
             : true
       })
     } else if (flagKind === Flag.LONG) {
       const key = removeDashes(text).toLowerCase()
-      hash[key] = whatFlag(nextText) === null ? nextText : true
+      hash[key] =
+        nextText && whatFlag(nextText) === null
+          ? nextText === 'false'
+            ? false
+            : nextText
+          : true
     }
   }
   return hash
 }
 
 export function clunk(): Clunk {
-  console.log(process.argv)
   return parseArgs(process.argv)
 }
