@@ -10,7 +10,7 @@ const defaultArgs = ['.../node_modules/.bin/ts-node', '.../clunk/src/index']
 const testCases: TestCase[] = [
   {
     name: "works don't it?",
-    argv: [...defaultArgs, 'compose', '--cool', 'beans', '-DE', 'nice'],
+    argv: [...defaultArgs, '--cool', 'beans', '-DE', 'nice'],
     expected: {
       cool: 'beans',
       d: true,
@@ -40,6 +40,17 @@ const testCases: TestCase[] = [
     expected: {
       number1: 42,
       a: 10,
+    },
+  },
+  {
+    name: 'handles prefix suffix',
+    argv: [...defaultArgs, 'command', '-abc', 'foo', '.'],
+    expected: {
+      prefix: 'command',
+      a: true,
+      b: true,
+      c: 'foo',
+      suffix: '.',
     },
   },
 ]
