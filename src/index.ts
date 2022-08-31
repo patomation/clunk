@@ -49,6 +49,13 @@ export function parseArgs(argv: string[]): Clunk {
     } else if (flagKind === Flag.LONG) {
       const key = removeDashes(text).toLowerCase()
       hash[key] = getValue(nextText)
+    } else {
+      const previousFlag = whatFlag(rest[i - 1])
+      if (i === 0) {
+        hash.prefix = text
+      } else if (previousFlag === null && rest.length - 1 === i) {
+        hash.suffix = text
+      }
     }
   }
   return hash
