@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/patomation/clunk/compare/v0.0.2...v0.0.3) (2022-08-31)
+
+
+### Features
+
+* **index:** added support for prefix and suffix ([a0c7252](https://github.com/patomation/clunk/commit/a0c7252d0454e31f7fd79128c04618e928ba8975))
+
 ### [0.0.2](https://github.com/patomation/clunk/compare/v0.0.1...v0.0.2) (2022-08-20)
 
 
