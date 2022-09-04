@@ -26,7 +26,7 @@
     "release": "npm run test && standard-version",
     "prepublishOnly": "npm run build",
     "publish": "git push --follow-tags",
-    "prepare": "chmod u+x ./scripts/*.sh && husky install"
+    "prepare": "husky install"
   },
   "keywords": [
     "typescript",
