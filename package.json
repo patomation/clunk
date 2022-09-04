@@ -7,7 +7,9 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
-    "build"
+    "build/index.d.ts",
+    "build/index.js",
+    "build/index.js.map"
   ],
   "scripts": {
     "compile:tests": "tsc --project tsconfig.test.json",
