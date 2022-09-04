@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/patomation/clunk/compare/v0.0.8...v0.0.9) (2022-09-04)
+
+
+### Features
+
+* **scripts:** prePublishOnly ([862a66c](https://github.com/patomation/clunk/commit/862a66ccc8690ba6b538856f88e0a8f9166b80ba))
+
 ### [0.0.8](https://github.com/patomation/clunk/compare/v0.0.2...v0.0.8) (2022-09-04)
 
 
