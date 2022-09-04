@@ -23,10 +23,9 @@
     "coverage": "npm run compile && npm run unit:coverage",
     "watch:compile": "onchange 'src/**/*.ts' -- npm run compile",
     "watch:test": "onchange 'src/**/*.ts' -- npm run test",
-    "release": "standard-version",
-    "prepublishOnly": "npm run build && npm run unit && ./scripts/prepublish.sh",
+    "release": "npm run test && standard-version",
+    "prepublishOnly": "npm run build",
     "publish": "git push --follow-tags",
-    "postpublish": "./scripts/postpublish.sh",
     "prepare": "chmod u+x ./scripts/*.sh && husky install"
   },
   "keywords": [
