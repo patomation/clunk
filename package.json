@@ -1,6 +1,6 @@
 {
   "name": "clunk",
-  "url": "https://github.com/patomation/clunk",
+  "url": "https://github.com/patomation/clunk.git",
   "version": "0.0.4",
   "description": "CLI argv parser helper",
   "public": true,
