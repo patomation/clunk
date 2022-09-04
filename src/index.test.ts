@@ -226,3 +226,13 @@ test('clunk null Config', async (t) => {
     t.assert(args.flags.a)
   })
 })
+
+test('clunk null args', async (t) => {
+  mockArgv([], async () => {
+    const args = clunk()
+    t.deepEqual(args, {
+      flags: {},
+      inputs: [],
+    })
+  })
+})

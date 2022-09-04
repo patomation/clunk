@@ -34,6 +34,7 @@ export function parser(
   inputs: Clunk['inputs'] = [],
   flags: Clunk['flags'] = {}
 ): Clunk {
+  if (!item) return { inputs, flags }
   const [char1, char2] = Array.from(item)
   const isLongFlag = char2 === '-'
   const isShortFlag = !isLongFlag && char1 === '-'
