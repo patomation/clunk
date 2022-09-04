@@ -1,8 +1,11 @@
 # Clunk
 
 Command Line Argument Parser helper library.
-Written in Typescript.
-SMALL. Currently only 4kb
+
+## Features
+
+- Written in Typescript.
+- SMALL.
 
 ![flavorite](https://raw.githubusercontent.com/patomation/clunk/master/patrick-star.png)
 
