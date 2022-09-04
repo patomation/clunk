@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/patomation/clunk/compare/v0.0.2...v0.0.6) (2022-09-04)
+
+
+### Features
+
+* **index:** added config support ([ccf74ae](https://github.com/patomation/clunk/commit/ccf74aef650c936540f5f5b6d95bf15c996f9179))
+* **index:** added support for prefix and suffix ([f39b8d2](https://github.com/patomation/clunk/commit/f39b8d25c6d035cf003fe2a174ddaa70c24d0cbc))
+
+
+### Bug Fixes
+
+* **index:** fixed bug where if args are null it would throw an undefined iterator error ([55816b6](https://github.com/patomation/clunk/commit/55816b6e5c3b91b2dd086f58f7c51f808f4d1155))
+
 ### [0.0.5](https://github.com/patomation/clunk/compare/v0.0.2...v0.0.5) (2022-09-04)
 
 
