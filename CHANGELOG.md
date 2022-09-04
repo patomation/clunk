@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/patomation/clunk/compare/v0.0.2...v0.0.8) (2022-09-04)
+
+
+### Features
+
+* **dev:** updated mascot and npm publish file filter ([4b7a2a5](https://github.com/patomation/clunk/commit/4b7a2a51b16852346e3811d500cab3ff7e7e3976))
+* **index:** added config support ([ccf74ae](https://github.com/patomation/clunk/commit/ccf74aef650c936540f5f5b6d95bf15c996f9179))
+* **index:** added support for prefix and suffix ([f39b8d2](https://github.com/patomation/clunk/commit/f39b8d25c6d035cf003fe2a174ddaa70c24d0cbc))
+* **scripts:** added prepublish and postpublish scripts ([e1aee7c](https://github.com/patomation/clunk/commit/e1aee7c94d4e49f0583e8890b375065f8c68166e))
+
+
+### Bug Fixes
+
+* **dev:** fixed publish hook ([3a055d6](https://github.com/patomation/clunk/commit/3a055d67ee38084308eeca0c7efd3268d9d8b267))
+* **index:** fixed bug where if args are null it would throw an undefined iterator error ([df75e22](https://github.com/patomation/clunk/commit/df75e2293bb884cebac8171e565c4bdcfee3a870))
+
 ### [0.0.7](https://github.com/patomation/clunk/compare/v0.0.2...v0.0.7) (2022-09-04)
 
 
