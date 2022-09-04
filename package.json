@@ -24,11 +24,19 @@
     "watch:compile": "onchange 'src/**/*.ts' -- npm run compile",
     "watch:test": "onchange 'src/**/*.ts' -- npm run test",
     "release": "standard-version",
+    "prepublish": "./scripts/prepublish.sh",
     "publish": "git push --follow-tags",
-    "prepare": "husky install"
+    "postpublish": "./scripts/postpublish.sh",
+    "prepare": "chmod u+x ./scripts/**/*.sh && husky install"
   },
   "keywords": [
-    "typescript"
+    "typescript",
+    "cli",
+    "ts",
+    "es6",
+    "parser",
+    "4kb",
+    "argv"
   ],
   "author": "Patrick Kelly",
   "license": "MIT",

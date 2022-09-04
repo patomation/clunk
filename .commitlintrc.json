@@ -6,6 +6,7 @@
       "deps",
       "dev",
       "doc",
+      "scripts",
       "typescript"
     ]]
   }
