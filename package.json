@@ -1,7 +1,7 @@
 {
   "name": "clunk",
   "url": "https://github.com/patomation/clunk.git",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "CLI argv parser helper",
   "public": true,
   "main": "build/index.js",
@@ -24,10 +24,10 @@
     "watch:compile": "onchange 'src/**/*.ts' -- npm run compile",
     "watch:test": "onchange 'src/**/*.ts' -- npm run test",
     "release": "standard-version",
-    "prepublish": "./scripts/prepublish.sh",
+    "prepublishOnly": "npm run build && npm run unit && ./scripts/prepublish.sh",
     "publish": "git push --follow-tags",
     "postpublish": "./scripts/postpublish.sh",
-    "prepare": "chmod u+x ./scripts/**/*.sh && husky install"
+    "prepare": "chmod u+x ./scripts/*.sh && husky install"
   },
   "keywords": [
     "typescript",
