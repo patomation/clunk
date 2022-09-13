@@ -5,7 +5,7 @@ Command Line Argument Parser helper library.
 ## Features
 
 - Written in Typescript.
-- SMALL.
+- (SMALL)[https://bundlephobia.com/package/clunk].
 
 ![flavorite](https://raw.githubusercontent.com/patomation/clunk/master/patrick-star.png)
 
