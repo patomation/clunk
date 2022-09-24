@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/patomation/clunk/compare/v0.0.2...v0.0.12) (2022-09-24)
+
+
+### Features
+
+* **dev:** updated mascot and npm publish file filter ([4b7a2a5](https://github.com/patomation/clunk/commit/4b7a2a51b16852346e3811d500cab3ff7e7e3976))
+* **index:** added config support ([ccf74ae](https://github.com/patomation/clunk/commit/ccf74aef650c936540f5f5b6d95bf15c996f9179))
+* **index:** added support for prefix and suffix ([f39b8d2](https://github.com/patomation/clunk/commit/f39b8d25c6d035cf003fe2a174ddaa70c24d0cbc))
+* **scripts:** added prepublish and postpublish scripts ([083427e](https://github.com/patomation/clunk/commit/083427ee305338cbc27b434c4f7f9692e41975df))
+* **scripts:** prePublishOnly ([30a2a9a](https://github.com/patomation/clunk/commit/30a2a9a34304cfb7a1be4ca753effb9368d6ee48))
+
+
+### Bug Fixes
+
+* **dev:** fixed publish hook ([3a055d6](https://github.com/patomation/clunk/commit/3a055d67ee38084308eeca0c7efd3268d9d8b267))
+* **index:** fixed bug where if args are null it would throw an undefined iterator error ([df75e22](https://github.com/patomation/clunk/commit/df75e2293bb884cebac8171e565c4bdcfee3a870))
+* **scripts:** fixed prepare script ([20e59c3](https://github.com/patomation/clunk/commit/20e59c3dc1e27a3ad8ce2f05242b08ba3277e706))
+* **scripts:** fixed release script ([8d2559a](https://github.com/patomation/clunk/commit/8d2559af400b4148b6be57f90bb11022fa7afd36))
+
 ### [0.0.11](https://github.com/patomation/clunk/compare/v0.0.10...v0.0.11) (2022-09-04)
 
 
