@@ -4,7 +4,7 @@
     "type": "git",
     "url": "git://github.com/patomation/clunk.git"
   },
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "CLI argv parser helper",
   "public": true,
   "main": "build/index.js",
