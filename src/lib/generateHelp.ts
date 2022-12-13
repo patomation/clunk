@@ -1,23 +1,26 @@
-import { Config } from ".."
+import { Config, Options } from ".."
+import { generateVersion } from "./generateVersion"
 
 
-const helpTemplate = (options: string) => `
+const helpTemplate = (optionsString: string, options?: Options) => `
+${options ? generateVersion(options) : ""}
+
 Usage:
 
 Options
-  ${options}
+  ${optionsString}
 `
 
 const len = (text: string): number =>  Array.from(text).length
 
-export function generateHelp (config?: Config) {
+export function generateHelp (config?: Config, options?: Options) {
   const entries = Object.entries(config || {})
   const longestFlag = entries
     .reduce((prev, [flag]) => {
       const length = len(flag)
       return length > prev ? length : prev 
     }, 0)
-  const options = entries
+  const optionsString = entries
     .map(([flag, {alias, type, description}]) => 
     [
       alias ? `-${alias}` : '    ', `--${flag}`,
@@ -29,5 +32,5 @@ export function generateHelp (config?: Config) {
     .filter((item) => item)
     .join("  ")
   ).join("\n")
-  return helpTemplate(options)
+  return helpTemplate(optionsString, options)
 }

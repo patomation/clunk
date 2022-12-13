@@ -1,4 +1,5 @@
 import { generateHelp } from './lib/generateHelp'
+import { generateVersion } from './lib/generateVersion'
 
 export interface Clunk {
   inputs: string[]
@@ -18,6 +19,11 @@ export interface Config {
 
 export type Flags<C extends Config> = {
   [key in keyof C]: ReturnType<C[key]['type']>
+}
+
+export interface Options {
+  name?: string
+  version?: string
 }
 
 function getConfigFlagByAlias(config: Config, alias: string): string | null {
@@ -94,12 +100,17 @@ export function parser(
 }
 
 export function clunk<C extends Config>(
-  config?: C
+  config?: C,
+  options?: Options
 ): { inputs: string[]; flags: Flags<C> } {
   const [, , ...rest] = process.argv
   const { flags, inputs } = parser(rest, config || {})
   if (flags.help || flags.h) {
-    console.log(generateHelp(config))
+    console.log(generateHelp(config, options))
+    process.exit()
+  }
+  if (flags.version && options?.version) {
+    console.log(generateVersion(options))
     process.exit()
   }
   return { flags: flags as Flags<C>, inputs }

@@ -9,26 +9,32 @@ import { clunk } from '../..'
  */
 const {
   flags: { option1, option2, option3 },
-} = clunk({
-  option1: {
-    type: Boolean,
-    description: 'Option 1 description',
-    alias: 'a',
+} = clunk(
+  {
+    option1: {
+      type: Boolean,
+      description: 'Option 1 description',
+      alias: 'a',
+    },
+    option2: {
+      type: String,
+      description: 'Option 2 description',
+    },
+    option3: {
+      type: Number,
+      description: 'Option 3 description',
+    },
+    option4: {
+      type: Number,
+    },
+    opt5: {
+      type: Number,
+    },
   },
-  option2: {
-    type: String,
-    description: 'Option 2 description',
-  },
-  option3: {
-    type: Number,
-    description: 'Option 3 description',
-  },
-  option4: {
-    type: Number,
-  },
-  opt5: {
-    type: Number,
-  },
-})
+  {
+    name: 'Help Example CLI',
+    version: '1.0.0',
+  }
+)
 
 console.log('This will not execute since process exited early')
