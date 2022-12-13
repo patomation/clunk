@@ -38,6 +38,7 @@
     "prepare": "husky install"
   },
   "keywords": [
+    "🦄",
     "typescript",
     "cli",
     "ts",
