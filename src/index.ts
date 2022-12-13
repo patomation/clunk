@@ -1,3 +1,5 @@
+import { generateHelp } from './lib/generateHelp'
+
 export interface Clunk {
   inputs: string[]
   flags: {
@@ -5,13 +7,17 @@ export interface Clunk {
   }
 }
 
-interface ConfigItem {
+export interface ConfigItem {
   description?: string
   type: typeof Boolean | typeof String | typeof Number
   alias?: string
 }
 export interface Config {
   [name: string]: ConfigItem
+}
+
+export type Flags<C extends Config> = {
+  [key in keyof C]: ReturnType<C[key]['type']>
 }
 
 function getConfigFlagByAlias(config: Config, alias: string): string | null {
@@ -87,13 +93,14 @@ export function parser(
   return result
 }
 
-type Flags<C extends Config> = {
-  [key in keyof C]: ReturnType<C[key]['type']>
-}
-
 export function clunk<C extends Config>(
   config?: C
 ): { inputs: string[]; flags: Flags<C> } {
   const [, , ...rest] = process.argv
-  return parser(rest, config || {}) as { inputs: string[]; flags: Flags<C> }
+  const { flags, inputs } = parser(rest, config || {})
+  if (flags.help || flags.h) {
+    console.log(generateHelp(config))
+    process.exit()
+  }
+  return { flags: flags as Flags<C>, inputs }
 }

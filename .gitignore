@@ -4,7 +4,6 @@ npm-debug.log
 .nyc_output
 coverage
 dist
-lib
 build
 *\ copy*
 *~

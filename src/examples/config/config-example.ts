@@ -1,9 +1,4 @@
-import { Config } from '../..'
 import { clunk } from '../..'
-
-type Flags<C extends Config> = {
-  [key in keyof C]: ReturnType<C[key]['type']>
-}
 
 // Works with config and gets types from config
 const {
