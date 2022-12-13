@@ -87,7 +87,13 @@ export function parser(
   return result
 }
 
-export function clunk(config?: Config): Clunk {
+type Flags<C extends Config> = {
+  [key in keyof C]: ReturnType<C[key]['type']>
+}
+
+export function clunk<C extends Config>(
+  config?: C
+): { inputs: string[]; flags: Flags<C> } {
   const [, , ...rest] = process.argv
-  return parser(rest, config || {})
+  return parser(rest, config || {}) as { inputs: string[]; flags: Flags<C> }
 }
