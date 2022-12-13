@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/patomation/clunk/compare/v0.0.13...v1.0.0) (2022-12-13)
+
+
+### Features
+
+* **help:** added help functionality ([9130609](https://github.com/patomation/clunk/commit/91306090b316bb1edbc7a9c681ccc935263c6a5b))
+* **typescript:** automatically get types from config ([aa4669f](https://github.com/patomation/clunk/commit/aa4669f67ef83e69a2a0a1320e2a1784d99398ed))
+* **version:** support ([0d327a3](https://github.com/patomation/clunk/commit/0d327a3f6317e05ec7c2246d16ec7042d81bcc2d))
+
 ### [0.0.13](https://github.com/patomation/clunk/compare/v0.0.12...v0.0.13) (2022-12-12)
 
 ### [0.0.12](https://github.com/patomation/clunk/compare/v0.0.2...v0.0.12) (2022-09-24)
