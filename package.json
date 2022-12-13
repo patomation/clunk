@@ -4,7 +4,7 @@
     "type": "git",
     "url": "git://github.com/patomation/clunk.git"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI argv parser helper",
   "public": true,
   "main": "build/index.js",
@@ -12,7 +12,13 @@
   "files": [
     "build/index.d.ts",
     "build/index.js",
-    "build/index.js.map"
+    "build/index.js.map",
+    "build/lib/generateHelp.d.ts",
+    "build/lib/generateHelp.js",
+    "build/lib/generateHelp.js.map",
+    "build/lib/generateVersion.d.ts",
+    "build/lib/generateVersion.js",
+    "build/lib/generateVersion.js.map"
   ],
   "scripts": {
     "compile:tests": "tsc --project tsconfig.test.json",
