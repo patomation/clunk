@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/patomation/clunk/compare/v1.0.2...v1.1.0) (2023-01-21)
+
+
+### Features
+
+* **index:** added support for = syntax ([1396e8f](https://github.com/patomation/clunk/commit/1396e8fddc6354c05569ba0e88f13c8b199ca752))
+
 ### [1.0.2](https://github.com/patomation/clunk/compare/v1.0.0...v1.0.2) (2022-12-13)
 
 ### [1.0.1](https://github.com/patomation/clunk/compare/v1.0.0...v1.0.1) (2022-12-13)
