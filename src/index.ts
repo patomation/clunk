@@ -40,6 +40,16 @@ function toBoolean(text: string): boolean | null {
   return text === 'true' ? true : text === 'false' ? false : null
 }
 
+function parseValue(text: string = ''): boolean | string | number {
+  return text === 'true'
+    ? true
+    : text === 'false'
+    ? false
+    : isNaN(Number(text))
+    ? text
+    : Number(text)
+}
+
 export function parser(
   [item, ...rest]: string[],
   config: Config,
@@ -57,7 +67,8 @@ export function parser(
     if (rest[0]) {
       const nextBoolean = toBoolean(rest[0])
       if (isNextItemFlag) {
-        flags[flag] = true
+        const [f, v] = flag.split('=')
+        flags[f] = parseValue(v) || true
       } else {
         if (flagType === Boolean) {
           flags[flag] = nextBoolean !== null ? nextBoolean : true
@@ -82,7 +93,8 @@ export function parser(
         }
       }
     } else {
-      flags[flag] = true
+      const [f, v] = flag.split('=')
+      flags[f] = parseValue(v) || true
     }
   } else if (isShortFlag) {
     const aliases = Array.from(item.replace(/-/g, '')).map(

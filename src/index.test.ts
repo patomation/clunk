@@ -7,6 +7,7 @@ interface TestCase {
   args: string
   config?: Config | null
   expected: Clunk
+  only?: boolean
 }
 const defaultArgs = ['.../node_modules/.bin/ts-node', '.../clunk/src/index']
 const testCases: TestCase[] = [
@@ -196,13 +197,28 @@ const testCases: TestCase[] = [
       },
     },
   },
+  {
+    name: 'Accepts = syntax',
+    args: '--alpha=true --beta=0100 --charley=test',
+    config: null,
+    expected: {
+      inputs: [],
+      flags: {
+        alpha: true,
+        beta: 100,
+        charley: 'test',
+      },
+    },
+  },
 ]
 
 function getName(name: string, args: string): string {
   return `${name} | ${args}`
 }
 
-testCases.forEach(({ name, args, config, expected }) => {
+const hasOnly = testCases.some(({ only }) => only)
+testCases.forEach(({ name, args, config, expected, only }) => {
+  if (hasOnly && !only) return
   test(getName(name, args), (t) => {
     const clunk = parser(args.split(' '), config || {})
     t.deepEqual(clunk, expected)
