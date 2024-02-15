@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/patomation/clunk/compare/v1.2.0...v1.3.0) (2024-02-15)
+
+
+### Features
+
+* **test:** commit extra test file include parseValue in publish filter ([b381055](https://github.com/patomation/clunk/commit/b381055495ead13f3ae2c3dc4ff81d477c726b01))
+
 ## [1.2.0](https://github.com/patomation/clunk/compare/v1.1.1...v1.2.0) (2024-02-15)
 
 
