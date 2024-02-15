@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/patomation/clunk/compare/v1.1.1...v1.2.0) (2024-02-15)
+
+
+### Features
+
+* **test:** code coverage 100% ([652a3fb](https://github.com/patomation/clunk/commit/652a3fb7ece2cac7ff782ec5224918123787cdfb))
+
 ### [1.1.1](https://github.com/patomation/clunk/compare/v1.1.0...v1.1.1) (2023-01-21)
 
 ## [1.1.0](https://github.com/patomation/clunk/compare/v1.0.2...v1.1.0) (2023-01-21)
