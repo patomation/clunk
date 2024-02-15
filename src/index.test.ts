@@ -1,6 +1,12 @@
 import test from 'ava'
-import { clunk, Clunk, Config, parser } from './index'
+import {
+  clunk,
+  Clunk,
+  Config,
+  parser,
+} from './index'
 import mockArgv from 'mock-argv'
+import { afterEach, beforeEach } from 'node:test'
 
 interface TestCase {
   name: string
@@ -9,7 +15,10 @@ interface TestCase {
   expected: Clunk
   only?: boolean
 }
-const defaultArgs = ['.../node_modules/.bin/ts-node', '.../clunk/src/index']
+const defaultArgs = [
+  '.../node_modules/.bin/ts-node',
+  '.../clunk/src/index',
+]
 const testCases: TestCase[] = [
   {
     name: 'passing config boolean will make last arg an input',
@@ -212,18 +221,26 @@ const testCases: TestCase[] = [
   },
 ]
 
-function getName(name: string, args: string): string {
+function getName(
+  name: string,
+  args: string
+): string {
   return `${name} | ${args}`
 }
 
 const hasOnly = testCases.some(({ only }) => only)
-testCases.forEach(({ name, args, config, expected, only }) => {
-  if (hasOnly && !only) return
-  test(getName(name, args), (t) => {
-    const clunk = parser(args.split(' '), config || {})
-    t.deepEqual(clunk, expected)
-  })
-})
+testCases.forEach(
+  ({ name, args, config, expected, only }) => {
+    if (hasOnly && !only) return
+    test(getName(name, args), (t) => {
+      const clunk = parser(
+        args.split(' '),
+        config || {}
+      )
+      t.deepEqual(clunk, expected)
+    })
+  }
+)
 
 test('clunk test', async (t) => {
   mockArgv(['-a'], async () => {
@@ -251,4 +268,62 @@ test('clunk null args', async (t) => {
       inputs: [],
     })
   })
+})
+
+let consoleLog: any = null
+let processExit: any = null
+beforeEach(() => {
+  consoleLog = console.log
+  processExit = process.exit
+})
+
+afterEach(() => {
+  console.log = consoleLog
+  process.exit = processExit
+})
+
+test('help', async (t) => {
+  let processExitCalled = false
+  process.exit = (() => {
+    processExitCalled = true
+  }) as any
+  let consoleLogMessage = ''
+  console.log = ((message: any) => {
+    consoleLogMessage = message
+  }) as any
+  process.argv[2] = '-h'
+  clunk()
+  t.deepEqual(consoleLogMessage.split('\n'), [
+    '',
+    '',
+    '',
+    'Usage:',
+    '',
+    'Options',
+    '  ',
+    '',
+  ])
+  t.assert(processExitCalled)
+})
+
+test('version', async (t) => {
+  let processExitCalled = false
+  process.exit = (() => {
+    processExitCalled = true
+  }) as any
+  let consoleLogMessage = ''
+  console.log = ((message: any) => {
+    consoleLogMessage = message
+  }) as any
+  process.argv[2] = '--version'
+  clunk(
+    {},
+    {
+      version: '1.0.0',
+    }
+  )
+  t.deepEqual(consoleLogMessage.split('\n'), [
+    '1.0.0',
+  ])
+  t.assert(processExitCalled)
 })

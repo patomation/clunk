@@ -37,4 +37,6 @@ const {
   }
 )
 
-console.log('This will not execute since process exited early')
+console.log(
+  'This will not execute since process exited early'
+)

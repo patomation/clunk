@@ -1,16 +1,24 @@
 import { generateHelp } from './lib/generateHelp'
 import { generateVersion } from './lib/generateVersion'
+import { parseValue } from './lib/parseValue'
 
 export interface Clunk {
   inputs: string[]
   flags: {
-    [key: string]: string | boolean | number | null
+    [key: string]:
+      | string
+      | boolean
+      | number
+      | null
   }
 }
 
 export interface ConfigItem {
   description?: string
-  type: typeof Boolean | typeof String | typeof Number
+  type:
+    | typeof Boolean
+    | typeof String
+    | typeof Number
   alias?: string
 }
 export interface Config {
@@ -26,28 +34,28 @@ export interface Options {
   version?: string
 }
 
-function getConfigFlagByAlias(config: Config, alias: string): string | null {
+function getConfigFlagByAlias(
+  config: Config,
+  alias: string
+): string | null {
   let matchingFlag: string | null = null
-  Object.entries(config).find(([flag, configItem]) => {
-    const isMatch: boolean = configItem.alias === alias
-    if (isMatch) matchingFlag = flag
-    return isMatch
-  })
+  Object.entries(config).find(
+    ([flag, configItem]) => {
+      const isMatch: boolean =
+        configItem.alias === alias
+      if (isMatch) matchingFlag = flag
+      return isMatch
+    }
+  )
   return matchingFlag
 }
 
 function toBoolean(text: string): boolean | null {
-  return text === 'true' ? true : text === 'false' ? false : null
-}
-
-function parseValue(text: string = ''): boolean | string | number {
   return text === 'true'
     ? true
     : text === 'false'
     ? false
-    : isNaN(Number(text))
-    ? text
-    : Number(text)
+    : null
 }
 
 export function parser(
@@ -61,7 +69,8 @@ export function parser(
   const isLongFlag = char2 === '-'
   const isShortFlag = !isLongFlag && char1 === '-'
   const flag = item.replace(/-/g, '')
-  const isNextItemFlag: boolean = Array.from(rest[0] || '')[0] === '-'
+  const isNextItemFlag: boolean =
+    Array.from(rest[0] || '')[0] === '-'
   if (isLongFlag) {
     const flagType = config[flag]?.type
     if (rest[0]) {
@@ -71,8 +80,12 @@ export function parser(
         flags[f] = parseValue(v) || true
       } else {
         if (flagType === Boolean) {
-          flags[flag] = nextBoolean !== null ? nextBoolean : true
-          if (nextBoolean !== null && rest[0]) rest.shift()
+          flags[flag] =
+            nextBoolean !== null
+              ? nextBoolean
+              : true
+          if (nextBoolean !== null && rest[0])
+            rest.shift()
         } else if (flagType === String) {
           flags[flag] = String(rest[0])
           rest.shift()
@@ -85,7 +98,11 @@ export function parser(
         } else if (flag.length > 1) {
           flags[flag] = rest[0]
           rest.shift()
-        } else if (flag.length === 1 && rest[0] && rest[1]) {
+        } else if (
+          flag.length === 1 &&
+          rest[0] &&
+          rest[1]
+        ) {
           flags[flag] = rest[0]
           rest.shift()
         } else {
@@ -97,8 +114,14 @@ export function parser(
       flags[f] = parseValue(v) || true
     }
   } else if (isShortFlag) {
-    const aliases = Array.from(item.replace(/-/g, '')).map(
-      (alias) => `--${getConfigFlagByAlias(config, alias) || alias}`
+    const aliases = Array.from(
+      item.replace(/-/g, '')
+    ).map(
+      (alias) =>
+        `--${
+          getConfigFlagByAlias(config, alias) ||
+          alias
+        }`
     )
     // Send them back through
     rest = [...aliases, ...rest]
@@ -106,7 +129,9 @@ export function parser(
     inputs.push(item)
   }
   const result =
-    rest.length > 0 ? parser(rest, config, inputs, flags) : { inputs, flags }
+    rest.length > 0
+      ? parser(rest, config, inputs, flags)
+      : { inputs, flags }
 
   return result
 }
@@ -116,7 +141,10 @@ export function clunk<C extends Config>(
   options?: Options
 ): { inputs: string[]; flags: Flags<C> } {
   const [, , ...rest] = process.argv
-  const { flags, inputs } = parser(rest, config || {})
+  const { flags, inputs } = parser(
+    rest,
+    config || {}
+  )
   if (flags.help || flags.h) {
     console.log(generateHelp(config, options))
     process.exit()
