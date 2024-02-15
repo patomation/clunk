@@ -18,7 +18,10 @@
     "build/lib/generateHelp.js.map",
     "build/lib/generateVersion.d.ts",
     "build/lib/generateVersion.js",
-    "build/lib/generateVersion.js.map"
+    "build/lib/generateVersion.js.map",
+    "build/lib/parseValue.d.ts",
+    "build/lib/parseValue.js",
+    "build/lib/parseValue.js.map"
   ],
   "scripts": {
     "compile:tests": "tsc --project tsconfig.test.json",
